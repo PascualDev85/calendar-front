@@ -35,7 +35,7 @@ export const Register = () => {
     <div className="col-md-6 login-form-2">
       <h3>Registro</h3>
       <form onSubmit={handleSubmit(registerSubmit)}>
-        <div className="form-group mb-2">
+        <div className="form-group mb-3">
           <input
             type="text"
             className={`form-control ${errors.name && "is-invalid"}`}
@@ -58,7 +58,7 @@ export const Register = () => {
             </div>
           )}
         </div>
-        <div className="form-group mb-2">
+        <div className="form-group mb-3">
           <input
             type="email"
             className={`form-control ${errors.email && "is-invalid"}`}
@@ -81,7 +81,7 @@ export const Register = () => {
             </div>
           )}
         </div>
-        <div className="form-group mb-2">
+        <div className="form-group mb-3">
           <input
             type="password"
             className={`form-control ${errors.password && "is-invalid"}`}
@@ -110,7 +110,7 @@ export const Register = () => {
           )}
         </div>
 
-        <div className="form-group mb-2">
+        <div className="form-group mb-3">
           <input
             type="password"
             className={`form-control ${errors.confirmPassword && "is-invalid"}`}

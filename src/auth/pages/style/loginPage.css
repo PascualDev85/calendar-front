@@ -1,0 +1,89 @@
+.login-container {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-container form {
+  padding: 10%;
+}
+
+.login-container .login-content {
+  width: 100%;
+}
+
+.login-container .login-content .login-form-1 {
+  border-radius: 5px 0px 0px 5px;
+  -webkit-box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+  padding: 5%;
+}
+
+.login-container .login-content .login-form-1 h3 {
+  text-align: center;
+  color: #333;
+}
+
+.login-container .login-content .login-form-1 .btnSubmit {
+  color: #fff;
+  background-color: #0062cc;
+}
+
+.login-container .login-content .login-form-1 .ForgetPwd {
+  color: #0062cc;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-container .login-content .login-form-2 {
+  border-radius: 0px 5px 5px 0px;
+  -webkit-box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+  padding: 5%;
+  background: #0062cc;
+}
+
+.login-container .login-content .login-form-2 h3 {
+  text-align: center;
+  color: #fff;
+}
+
+.login-container .login-content .login-form-2 .btnSubmit {
+  color: #0062cc;
+  background-color: #fff;
+}
+
+.login-container .login-content .login-form-2 .ForgetPwd {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btnSubmit {
+  border-radius: 1rem;
+  padding: 1.5%;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0px;
+  -webkit-filter: brightness(95%);
+          filter: brightness(95%);
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.btnSubmit:hover {
+  -webkit-box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+/*# sourceMappingURL=loginPage.css.map */

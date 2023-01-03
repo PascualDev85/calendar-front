@@ -9,7 +9,7 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import es from "date-fns/locale/es";
 
 import "react-datepicker/dist/react-datepicker.css";
-import "./styles/calendarModal.css";
+import "./styles/calendarModal.scss";
 import { useCalendarStore, useUiStore } from "../../hooks";
 
 registerLocale("es", es);

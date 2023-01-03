@@ -18,7 +18,7 @@ export const Login = () => {
     <div className="col-md-6 login-form-1">
       <h3>Ingreso</h3>
       <form onSubmit={handleSubmit(loginSubmit)}>
-        <div className="form-group mb-2">
+        <div className="form-group mb-3">
           <input
             type="text"
             className={`form-control ${errors.email && "is-invalid"}`}
@@ -36,7 +36,7 @@ export const Login = () => {
             </div>
           )}
         </div>
-        <div className="form-group mb-2">
+        <div className="form-group mb-3">
           <input
             type="password"
             className={`form-control ${errors.password && "is-invalid"}`}
