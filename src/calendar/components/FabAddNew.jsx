@@ -1,6 +1,6 @@
 import { addHours } from "date-fns/esm";
 import { useCalendarStore, useUiStore } from "../../hooks";
-import "./styles/fabAddNewOrDelete.css";
+import "./styles/fabAddNewOrDelete.scss";
 
 export const FabAddNew = () => {
   const { openDateModal, hasEventOpen } = useUiStore();
@@ -14,8 +14,8 @@ export const FabAddNew = () => {
       end: addHours(new Date(), 2),
       bgColor: "#fafafa",
       user: {
-        _id: "123",
-        name: "David",
+        _id: "",
+        name: "",
       },
     });
     openDateModal();

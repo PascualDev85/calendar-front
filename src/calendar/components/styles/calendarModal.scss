@@ -36,5 +36,36 @@
   max-height: 620px;
   max-width: 500px;
   outline: none;
-  padding: 10px;
+
+  .title-event {
+    background-color: #0062cc;
+    color: white;
+    padding: 20px;
+    h1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: black;
+  }
+
+  label {
+    font-weight: bold;
+    padding-bottom: 2px;
+  }
+  small {
+    padding: 2px 0 0 5px;
+  }
+  button {
+    margin-top: 12px;
+  }
+}
+
+@media screen and (max-width: 468px) {
+  .modal {
+    max-width: 345px;
+  }
 }

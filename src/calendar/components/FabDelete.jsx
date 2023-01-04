@@ -1,5 +1,5 @@
 import { useCalendarStore, useUiStore } from "../../hooks";
-import "./styles/fabAddNewOrDelete.css";
+import "./styles/fabAddNewOrDelete.scss";
 
 export const FabDelete = () => {
   const { startDeletingEvent, hasEventSelected } = useCalendarStore();
@@ -15,7 +15,7 @@ export const FabDelete = () => {
 
   return (
     <button
-      className="btn btn-danger fab-danger"
+      className="btn btn-danger fab fab-danger"
       onClick={handleDelete}
       style={styleButton}
     >

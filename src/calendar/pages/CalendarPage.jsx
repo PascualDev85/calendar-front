@@ -57,7 +57,7 @@ export const CalendarPage = () => {
   }, []);
 
   return (
-    <>
+    <div className="animate__animated animate__fadeIn animated__faster">
       <Navbar />
 
       <Calendar
@@ -81,6 +81,6 @@ export const CalendarPage = () => {
       <CalendarModal />
       <FabAddNew />
       <FabDelete />
-    </>
+    </div>
   );
 };

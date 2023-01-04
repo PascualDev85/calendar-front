@@ -10,7 +10,7 @@ import es from "date-fns/locale/es";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./styles/calendarModal.scss";
-import { useCalendarStore, useUiStore } from "../../hooks";
+import { useAuthStore, useCalendarStore, useUiStore } from "../../hooks";
 
 registerLocale("es", es);
 
@@ -28,14 +28,16 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 export const CalendarModal = () => {
+  const { user } = useAuthStore();
   const { isDateModalOpen, closeDateModal } = useUiStore();
   const { activeEvent, startSavingEvent } = useCalendarStore();
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [errMsg, setErrMsg] = useState(false);
 
   const [formValues, setFormValues] = useState({
-    title: "David",
-    notes: "Comprar la tarta",
+    title: "",
+    notes: "",
     start: new Date(),
     end: addHours(new Date(), 2),
   });
@@ -52,7 +54,13 @@ export const CalendarModal = () => {
     }
   }, [activeEvent]);
 
-  const errorMessage = "Titulo es obligatorio";
+  const isMyEvent = () => {
+    return (
+      user.uid === activeEvent?.user._id ||
+      user.uid === activeEvent?.user.id ||
+      activeEvent?.user._id === ""
+    );
+  };
 
   const onInputChange = ({ target }) => {
     setFormValues({
@@ -73,14 +81,16 @@ export const CalendarModal = () => {
     setFormSubmitted(true);
 
     const difference = differenceInSeconds(formValues.end, formValues.start);
-
     if (isNaN(difference) || difference <= 0) {
       Swal.fire("Fechas Incorrectas", "Revisar las fechas ingresadas", "error");
       return;
     }
 
+    const errorMessage =
+      "El título es obligatorio y debe tener al menos 2 letras";
     if (formValues.title.trim().length < 2) {
-      return errorMessage;
+      setErrMsg(errorMessage);
+      return;
     }
 
     await startSavingEvent(formValues);
@@ -98,9 +108,14 @@ export const CalendarModal = () => {
       overlayClassName="modal-fondo"
       closeTimeoutMS={200}
     >
-      <h1> Nuevo evento </h1>
-      <hr />
-      <form onSubmit={onSubmit} className="container">
+      <div className="title-event">
+        <h1>
+          Nuevo evento
+          <i className="fa-sharp fa-solid fa-calendar"></i>
+        </h1>
+      </div>
+
+      <form onSubmit={onSubmit} className="container p-4">
         <div className="form-group mb-2">
           <label>Fecha y hora inicio</label>
           <DatePicker
@@ -112,10 +127,11 @@ export const CalendarModal = () => {
             dateFormat="Pp"
             locale={"es"}
             timeCaption="Hora"
+            disabled={!isMyEvent()}
           />
         </div>
 
-        <div className="form-group mb-2">
+        <div className="form-group mb-4">
           <label>Fecha y hora fin</label>
           <DatePicker
             minDate={formValues.start}
@@ -126,12 +142,12 @@ export const CalendarModal = () => {
             dateFormat="Pp"
             locale={"es"}
             timeCaption="Hora"
+            disabled={!isMyEvent()}
           />
         </div>
 
-        <hr />
         <div className="form-group mb-2">
-          <label>Titulo y notas</label>
+          <label>Título y Notas</label>
           <input
             type="text"
             className={titleClass}
@@ -140,9 +156,14 @@ export const CalendarModal = () => {
             autoComplete="off"
             value={formValues.title}
             onChange={onInputChange}
+            disabled={!isMyEvent()}
           />
-          <small className="form-text danger">{errorMessage}</small>
-          <small id="emailHelp" className="form-text text-muted">
+
+          <small className="invalid-feedback">{errMsg}</small>
+          <small
+            id="emailHelp"
+            className={`form-text text-muted  ${errMsg && "d-none"}`}
+          >
             Una descripción corta
           </small>
         </div>
@@ -156,6 +177,7 @@ export const CalendarModal = () => {
             name="notes"
             value={formValues.notes}
             onChange={onInputChange}
+            disabled={!isMyEvent()}
           ></textarea>
           <small id="emailHelp" className="form-text text-muted">
             Información adicional

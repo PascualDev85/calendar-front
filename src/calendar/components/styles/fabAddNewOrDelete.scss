@@ -6,13 +6,10 @@
   height: 75px;
   position: fixed;
   right: 40px;
-  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-}
-
-.fab:hover {
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.46);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.46);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.46);
+  }
 }
 
 .fab-danger {
@@ -32,4 +29,3 @@
     left: 15px;
   }
 }
-/*# sourceMappingURL=fabAddNewOrDelete.css.map */

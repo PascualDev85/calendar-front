@@ -44,6 +44,62 @@
   max-height: 620px;
   max-width: 500px;
   outline: none;
-  padding: 10px;
+}
+
+.modal .title-event {
+  background-color: #0062cc;
+  color: white;
+  padding: 20px;
+}
+
+.modal .title-event h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modal input::-webkit-input-placeholder,
+.modal textarea::-webkit-input-placeholder {
+  color: black;
+}
+
+.modal input:-ms-input-placeholder,
+.modal textarea:-ms-input-placeholder {
+  color: black;
+}
+
+.modal input::-ms-input-placeholder,
+.modal textarea::-ms-input-placeholder {
+  color: black;
+}
+
+.modal input::placeholder,
+.modal textarea::placeholder {
+  color: black;
+}
+
+.modal label {
+  font-weight: bold;
+  padding-bottom: 2px;
+}
+
+.modal small {
+  padding: 2px 0 0 5px;
+}
+
+.modal button {
+  margin-top: 12px;
+}
+
+@media screen and (max-width: 468px) {
+  .modal {
+    max-width: 345px;
+  }
 }
 /*# sourceMappingURL=calendarModal.css.map */
