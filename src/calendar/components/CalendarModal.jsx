@@ -54,13 +54,13 @@ export const CalendarModal = () => {
     }
   }, [activeEvent]);
 
-  const isMyEvent = () => {
+  const isMyEvent = useMemo(() => {
     return (
       user.uid === activeEvent?.user._id ||
-      user.uid === activeEvent?.user.id ||
+      user.uid === activeEvent?.user.uid ||
       activeEvent?.user._id === ""
     );
-  };
+  }, [activeEvent, user]);
 
   const onInputChange = ({ target }) => {
     setFormValues({
@@ -127,7 +127,7 @@ export const CalendarModal = () => {
             dateFormat="Pp"
             locale={"es"}
             timeCaption="Hora"
-            disabled={!isMyEvent()}
+            disabled={!isMyEvent}
           />
         </div>
 
@@ -142,7 +142,7 @@ export const CalendarModal = () => {
             dateFormat="Pp"
             locale={"es"}
             timeCaption="Hora"
-            disabled={!isMyEvent()}
+            disabled={!isMyEvent}
           />
         </div>
 
@@ -156,7 +156,7 @@ export const CalendarModal = () => {
             autoComplete="off"
             value={formValues.title}
             onChange={onInputChange}
-            disabled={!isMyEvent()}
+            disabled={!isMyEvent}
           />
 
           <small className="invalid-feedback">{errMsg}</small>
@@ -177,7 +177,7 @@ export const CalendarModal = () => {
             name="notes"
             value={formValues.notes}
             onChange={onInputChange}
-            disabled={!isMyEvent()}
+            disabled={!isMyEvent}
           ></textarea>
           <small id="emailHelp" className="form-text text-muted">
             Información adicional
